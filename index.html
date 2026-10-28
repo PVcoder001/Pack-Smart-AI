@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PackAI — AI-Based Intelligent Food Packaging Recommendation System</title>
+<meta name="description" content="AI-powered intelligent packaging material recommendation system for food commodities. Recommend optimized packaging materials and specifications based on food properties." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2310b981'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.83z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      </span>
+      <span class="brand-text">Pack<em>AI</em></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#how" class="nav-link">How it Works</a>
+      <a href="#analyzer" class="nav-link">Smart Analyzer</a>
+      <a href="#database" class="nav-link">Material Database</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#analyzer" class="btn btn-primary btn-sm">Launch Analyzer</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <span class="grid-overlay"></span>
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="hero-badge"><span class="pulse-dot"></span> AI-Powered Decision Support System</span>
+      <h1 class="hero-title">Intelligent Food <span class="gradient-text">Packaging Material</span> Recommendation Made Smart</h1>
+      <p class="hero-sub">
+        Harness the power of AI to select the optimal packaging material, barrier specifications,
+        Modified Atmosphere Packaging (MAP) composition, and sustainability profile for any food commodity —
+        reducing spoilage, extending shelf life, and cutting packaging losses.
+      </p>
+      <div class="hero-cta">
+        <a href="#analyzer" class="btn btn-primary btn-lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Analyze My Product
+        </a>
+        <a href="#database" class="btn btn-ghost btn-lg">Explore Material Database</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>12+</strong><span>Packaging materials evaluated</span></div>
+        <div class="stat"><strong>20+</strong><span>Food commodity categories</span></div>
+        <div class="stat"><strong>9</strong><span>Input parameters analyzed</span></div>
+        <div class="stat"><strong>100%</strong><span>Configurable &amp; extensible</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="viz-card viz-main">
+        <div class="viz-head">
+          <span class="viz-chip">Recommendation Engine</span>
+          <span class="viz-live">● LIVE</span>
+        </div>
+        <div class="viz-body">
+          <div class="viz-row"><span>Commodity</span><strong>Fresh Strawberries</strong></div>
+          <div class="viz-row"><span>Storage</span><strong>Chilled · 4°C</strong></div>
+          <div class="viz-divider"></div>
+          <div class="viz-material">
+            <span class="mat-tag">TOP PICK</span>
+            <div class="mat-name">Micro-Perforated BOPP<br><small>OTR 8,000–12,000 · MAP ready</small></div>
+            <div class="mat-score"><strong>96</strong><span>/100</span></div>
+          </div>
+          <div class="viz-map">MAP Gas: <b>5% O₂ · 10% CO₂ · 85% N₂</b></div>
+        </div>
+      </div>
+      <div class="viz-card viz-float">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        <div><strong>Shelf life +45%</strong><small>vs. conventional packs</small></div>
+      </div>
+    </div>
+  </div>
+  <a href="#features" class="hero-scroll" aria-label="Scroll down">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </a>
+</header>
+
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker">Why PackAI</span>
+      <h2 class="section-title">Every food commodity deserves the <span class="gradient-text">right packaging</span></h2>
+      <p class="section-sub">From moisture absorption to oxidation and microbial spoilage — PackAI translates food science into packaging decisions.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <h3>Smart Material Matching</h3>
+        <p>AI scores 12+ packaging materials against barrier, strength, cost and sustainability requirements to rank the best fit.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 12l4-4 3 3 5-6"/></svg></div>
+        <h3>Barrier Prediction</h3>
+        <p>Computes required Oxygen Transmission Rate (OTR) and Water Vapor Transmission Rate (WVTR) from food properties.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="6"/></svg></div>
+        <h3>MAP &amp; Freshness</h3>
+        <p>Accounts for respiration rate and recommends breathable films plus the ideal O₂ / CO₂ / N₂ gas blend for fresh produce.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Shelf-Life Prediction</h3>
+        <p>Estimates achievable shelf life under the recommended packaging and storage conditions with a confidence interval.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h3>Sustainability &amp; Cost</h3>
+        <p>Ranks eco-friendly and recyclable alternatives, estimates carbon footprint and per-pack packaging cost.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M17 7.5h4"/><path d="M17 16.5h4"/></svg></div>
+        <h3>QR Traceability</h3>
+        <p>Generates a scannable traceability code embedding the analysis, packaging spec and lot details for the supply chain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section section-alt" id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker">How it Works</span>
+      <h2 class="section-title">From commodity to <span class="gradient-text">optimized pack</span> in 4 steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Describe your product</h3>
+        <p>Select the commodity and enter its physical, chemical and biological parameters — moisture, oil, pH, respiration and more.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h3>Define storage &amp; logistics</h3>
+        <p>Set storage type, temperature, humidity, transport distance and desired shelf life — the conditions your pack must survive.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h3>AI recommendation engine</h3>
+        <p>Our rule-and-score hybrid engine profiles barrier needs, tests every material in the database and optimizes the stack.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <h3>Get the full spec sheet</h3>
+        <p>Receive ranked materials, OTR/WVTR targets, thickness, MAP gas blend, shelf-life forecast, cost and sustainability report.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANALYZER ============ -->
+<section class="section" id="analyzer">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker">Smart Analyzer</span>
+      <h2 class="section-title">Enter your product details to get an <span class="gradient-text">AI recommendation</span></h2>
+      <p class="section-sub">All fields are validated for correctness. Fresh produce unlocks respiration &amp; MAP analysis automatically.</p>
+    </div>
+
+    <div class="analyzer-shell reveal">
+      <!-- ======= FORM PANEL ======= -->
+      <div class="form-panel" id="formPanel">
+        <div class="form-head">
+          <h3>Product &amp; Storage Parameters</h3>
+          <span class="form-tag">9 required parameters</span>
+        </div>
+
+        <form id="analyzerForm" novalidate>
+          <!-- Category -->
+          <div class="group-heading">Food Commodity</div>
+          <div class="field-row">
+            <div class="field">
+              <label for="commodityCategory">Commodity Category <span class="req">*</span></label>
+              <select id="commodityCategory" required>
+                <option value="">— Select category —</option>
+              </select>
+              <small class="hint">Broad category automates sensible defaults.</small>
+            </div>
+            <div class="field">
+              <label for="commodityName">Commodity Name <span class="req">*</span></label>
+              <select id="commodityName" required>
+                <option value="">— Select commodity —</option>
+              </select>
+              <small class="hint">Specific food item within the category.</small>
+            </div>
+          </div>
+
+          <!-- Composition -->
+          <div class="group-heading">Composition &amp; Chemistry</div>
+          <div class="field-row">
+            <div class="field range-field">
+              <label for="moisture">Moisture Content <span class="req">*</span></label>
+              <div class="range-wrap">
+                <input type="range" id="moistureRange" min="0" max="100" step="0.5" value="80">
+                <input type="number" id="moisture" min="0" max="100" step="0.5" value="80" required>
+                <span class="unit">%</span>
+              </div>
+              <small class="hint">Water activity proxy — drives moisture barrier demand.</small>
+            </div>
+            <div class="field range-field">
+              <label for="oil">Oil / Fat Content <span class="req">*</span></label>
+              <div class="range-wrap">
+                <input type="range" id="oilRange" min="0" max="100" step="0.5" value="5">
+                <input type="number" id="oil" min="0" max="100" step="0.5" value="5" required>
+                <span class="unit">%</span>
+              </div>
+              <small class="hint">High fat → oxidation &amp; light barrier required.</small>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field range-field">
+              <label for="pH">pH Value <span class="req">*</span></label>
+              <div class="range-wrap">
+                <input type="range" id="pHRange" min="0" max="14" step="0.1" value="4.5">
+                <input type="number" id="pH" min="0" max="14" step="0.1" value="4.5" required>
+              </div>
+              <small class="hint">Acid &lt;7 · Neutral =7 · Alkaline &gt;7.</small>
+            </div>
+            <div class="field range-field">
+              <label for="oxygenSensitivity">Oxygen Sensitivity</label>
+              <select id="oxygenSensitivity">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+              <small class="hint">Affects OTR barrier requirement.</small>
+            </div>
+          </div>
+
+          <!-- Respiration (fresh produce) -->
+          <div class="group-heading" id="respGroupHead">Respiration (Fresh Produce)</div>
+          <div class="field-row" id="respRow">
+            <div class="field range-field">
+              <label for="respiration">Respiration Rate</label>
+              <div class="range-wrap">
+                <input type="range" id="respirationRange" min="1" max="300" step="1" value="25">
+                <input type="number" id="respiration" min="1" max="300" step="1" value="25" required>
+                <span class="unit">mg CO₂/kg·h</span>
+              </div>
+              <small class="hint">Auto-filled from commodity; adjust for your lot.</small>
+            </div>
+          </div>
+
+          <!-- Storage -->
+          <div class="group-heading">Storage &amp; Distribution</div>
+          <div class="field-row">
+            <div class="field">
+              <label for="storageType">Storage Type <span class="req">*</span></label>
+              <select id="storageType" required>
+                <option value="ambient">Ambient (10–40°C)</option>
+                <option value="chilled" selected>Chilled (0–8°C)</option>
+                <option value="frozen">Frozen (≤ -18°C)</option>
+              </select>
+              <small class="hint">Sets the temperature window.</small>
+            </div>
+            <div class="field range-field">
+              <label for="temperature">Storage Temperature <span class="req">*</span></label>
+              <div class="range-wrap">
+                <input type="range" id="temperatureRange" min="-40" max="45" step="1" value="4">
+                <input type="number" id="temperature" min="-40" max="45" step="1" value="4" required>
+                <span class="unit">°C</span>
+              </div>
+              <small class="hint">Validated against storage type.</small>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field range-field">
+              <label for="humidity">Relative Humidity <span class="req">*</span></label>
+              <div class="range-wrap">
+                <input type="range" id="humidityRange" min="0" max="100" step="1" value="85">
+                <input type="number" id="humidity" min="0" max="100" step="1" value="85" required>
+                <span class="unit">%</span>
+              </div>
+              <small class="hint">Ambient RH at storage / retail.</small>
+            </div>
+            <div class="field range-field">
+              <label for="shelfLife">Desired Shelf Life <span class="req">*</span></label>
+              <div class="range-wrap">
+                <input type="range" id="shelfLifeRange" min="1" max="365" step="1" value="21">
+                <input type="number" id="shelfLife" min="1" max="365" step="1" value="21" required>
+                <span class="unit">days</span>
+              </div>
+              <small class="hint">Target retail shelf life in days.</small>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="transportMode">Transportation Condition <span class="req">*</span></label>
+              <select id="transportMode" required>
+                <option value="road-local">Road · Local (&lt; 150 km)</option>
+                <option value="road-long" selected>Road · Long-haul (150–2000 km)</option>
+                <option value="sea">Sea Freight (&gt; 2000 km)</option>
+                <option value="air">Air Freight (fast / premium)</option>
+                <option value="multimodal">Multimodal (mixed)</option>
+              </select>
+              <small class="hint">Defines mechanical &amp; abuse requirements.</small>
+            </div>
+            <div class="field">
+              <label for="sustainabilityPref">Sustainability Preference</label>
+              <select id="sustainabilityPref">
+                <option value="balanced" selected>Balanced</option>
+                <option value="eco">Eco-first (recyclable / compostable)</option>
+                <option value="cost">Cost-first</option>
+              </select>
+              <small class="hint">Adjusts eco &amp; cost weights in ranking.</small>
+            </div>
+          </div>
+
+          <div class="form-errors" id="formErrors" role="alert"></div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="analyzeBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><polyline points="2 12 8 12 10 8 14 14 16 10 22 10 22 12"/></svg>
+              Run AI Analysis
+            </button>
+            <button type="reset" class="btn btn-ghost btn-block" id="resetBtn">Reset Form</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ======= LOADING PANEL ======= -->
+      <div class="loading-panel hidden" id="loadingPanel">
+        <div class="ai-orb"><span></span></div>
+        <h3>Running AI Recommendation Engine…</h3>
+        <ul class="ai-steps" id="aiSteps"></ul>
+        <div class="ai-bar"><span id="aiBarFill"></span></div>
+        <p class="ai-note">Profiling food properties · computing barrier needs · scoring 12+ materials · optimizing</p>
+      </div>
+
+      <!-- ======= RESULTS PANEL ======= -->
+      <div class="results-panel hidden" id="resultsPanel">
+
+        <div class="results-head">
+          <div>
+            <span class="results-kicker">Recommendation Report</span>
+            <h3 id="recTitle">Top Recommendation</h3>
+          </div>
+          <div class="result-actions">
+            <button class="btn btn-ghost btn-sm" id="downloadBtn">⬇ Download Report</button>
+            <button class="btn btn-ghost btn-sm" id="newAnalysisBtn">↺ New Analysis</button>
+          </div>
+        </div>
+
+        <!-- Top rec banner -->
+        <div class="rec-banner" id="recBanner">
+          <div class="rec-banner-left">
+            <span class="top-tag">TOP PICK · CONFIDENCE <b id="recConfidence">92%</b></span>
+            <h2 id="recMaterialName">—</h2>
+            <p id="recMaterialDesc">—</p>
+          </div>
+          <div class="rec-banner-score">
+            <div class="score-ring" id="scoreRing"><span id="scoreRingVal">0</span></div>
+            <small>AI Score</small>
+          </div>
+        </div>
+
+        <!-- Top 3 candidates -->
+        <div class="results-section">
+          <h4 class="results-title">Ranked Material Candidates</h4>
+          <div class="candidate-list" id="candidateList"></div>
+        </div>
+
+        <!-- Charts row -->
+        <div class="results-grid-2">
+          <div class="panel">
+            <h4 class="results-title">Material Property Profile</h4>
+            <canvas id="radarChart" width="340" height="300" class="chart-canvas"></canvas>
+          </div>
+          <div class="panel">
+            <h4 class="results-title">Specification vs. Requirements</h4>
+            <div id="specBars" class="spec-bars"></div>
+          </div>
+        </div>
+
+        <!-- Specs table -->
+        <div class="results-section">
+          <h4 class="results-title">Packaging Specification Sheet</h4>
+          <div class="table-wrap">
+            <table class="spec-table" id="specTable">
+              <thead><tr><th>Specification</th><th>Recommended</th><th>Unit / Notes</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- MAP + shelf life -->
+        <div class="results-grid-2">
+          <div class="panel" id="mapPanel" hidden>
+            <h4 class="results-title">Modified Atmosphere Packaging (MAP)</h4>
+            <div class="gas-blend" id="gasBlend"></div>
+            <p class="map-note" id="mapNote"></p>
+          </div>
+          <div class="panel">
+            <h4 class="results-title">Shelf-Life Forecast</h4>
+            <div class="shelf-wrap">
+              <canvas id="shelfGauge" width="260" height="170"></canvas>
+              <p id="shelfText" class="shelf-text"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sustainability + cost + QR -->
+        <div class="results-grid-3">
+          <div class="panel">
+            <h4 class="results-title">Sustainability Analysis</h4>
+            <div id="sustainabilityMeters" class="sustain-rows"></div>
+            <p class="eco-alt" id="ecoAlt"></p>
+          </div>
+          <div class="panel">
+            <h4 class="results-title">Cost Estimate</h4>
+            <div id="costRows" class="cost-rows"></div>
+            <p class="cost-note">Includes film resin + conversion + printing estimate (₹/pack).</p>
+          </div>
+          <div class="panel">
+            <h4 class="results-title">QR Traceability</h4>
+            <canvas id="qrCanvas" width="160" height="160" class="qr-canvas"></canvas>
+            <p class="qr-note">Scan-ready traceability payload embedding analysis ID, commodity, packaging spec &amp; storage conditions.</p>
+            <div class="qr-payload" id="qrPayload"></div>
+          </div>
+        </div>
+
+        <div class="results-foot">
+          <p>Disclaimer: Recommendations are decision-support estimates generated from domain heuristics and an extensible material database. Always validate with physical trials and regulatory compliance (FSSAI / FDA / EU) before commercialization.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MATERIAL DATABASE ============ -->
+<section class="section section-alt" id="database">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker">Knowledge Base</span>
+      <h2 class="section-title">Packaging Material <span class="gradient-text">Database</span></h2>
+      <p class="section-sub">Search and filter the built-in material library that powers the recommendation engine.</p>
+    </div>
+
+    <div class="db-controls reveal">
+      <div class="db-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="dbSearch" placeholder="Search materials… (e.g. PET, foil, biodegradable)" />
+      </div>
+      <select id="dbFilter">
+        <option value="all">All categories</option>
+        <option value="flexible">Flexible Films</option>
+        <option value="rigid">Rigid Packaging</option>
+        <option value="laminates">Laminates &amp; Foils</option>
+        <option value="eco">Biodegradable / Eco</option>
+        <option value="breathable">Breathable / MAP</option>
+      </select>
+    </div>
+
+    <div class="db-grid reveal" id="dbGrid"></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker">FAQ</span>
+      <h2 class="section-title">Common <span class="gradient-text">questions</span></h2>
+    </div>
+    <div class="faq-list reveal" id="faqList">
+      <div class="faq-item">
+        <button class="faq-q">How does the AI decide which packaging material to recommend?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>PackAI converts your inputs (moisture, fat, pH, respiration, storage, shelf life…) into barrier &amp; mechanical requirement vectors, then scores each material in the database across oxygen barrier, moisture barrier, light barrier, strength, scalability, flexibility, cost and sustainability. The ranked scores drive the recommendation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is Modified Atmosphere Packaging (MAP) and when is it recommended?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>MAP replaces the air inside the pack with a gas blend (typically O₂, CO₂, N₂) to slow respiration, microbial growth and oxidation. PackAI suggests MAP for active-respiring fresh produce and recommends a gas composition along with breathable or micro-perforated films to balance O₂ ingress and CO₂ egress.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I use this for small-scale/farm-level packaging?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Yes. The system is explicitly designed for small food industries, startups, farmers and local manufacturers. It factors cost and sustainability preferences and suggests practical, purchasable film types with target OTR/WVTR values you can request from suppliers.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How accurate is the shelf-life prediction?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>The forecast is a heuristics-based estimate derived from commodity base shelf life, packaging barrier performance, and storage conditions — ideal for comparing options and shortlisting materials. Real commercial shelf life requires validation trials per your exact product formulation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Are biodegradable alternatives always recommended?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Only when they genuinely meet the barrier requirements. If you choose the "Eco-first" preference, the engine boosts recyclable/compostable materials but still blocks options that would fail the required OTR/WVTR/strength thresholds, so food protection is never compromised.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-text">Pack<em>AI</em></span>
+        <p>AI-Based Intelligent Food Packaging Material Recommendation System for Food Commodities — a smart decision-support tool for the food processing &amp; packaging industry.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="#how">How it Works</a>
+        <a href="#analyzer">Smart Analyzer</a>
+        <a href="#database">Material Database</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Outputs</h4>
+        <a href="#analyzer">Material Ranking</a>
+        <a href="#analyzer">Barrier Specifications</a>
+        <a href="#analyzer">MAP Gas Composition</a>
+        <a href="#analyzer">Sustainability Report</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@packai.example">hello@packai.example</a>
+        <a href="#">Support Centre</a>
+        <a href="#">API Access</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PackAI · Intelligent Packaging Systems. For demonstration &amp; decision-support.</span>
+      <span class="footer-tags">Made with 💚 for the food industry</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
